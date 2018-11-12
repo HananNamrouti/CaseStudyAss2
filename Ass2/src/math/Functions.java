@@ -11,7 +11,7 @@ public class Functions {
             return Double.NaN;
         if (x == 1 || x == -1)
             return x * resultFor1;
-
+///
         double result = 0;
         int n = 1;
         double prev;
