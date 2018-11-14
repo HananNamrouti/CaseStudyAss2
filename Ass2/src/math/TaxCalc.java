@@ -15,6 +15,7 @@ public class TaxCalc {
     static int nFamilyMembers;
     static int exemption;
     static double income;
+    static double age;
     static double taxTotal;
 
     public static void main(String[] args) {
@@ -36,11 +37,17 @@ public class TaxCalc {
 //     check income
 
         if (income < 0) {
-            System.out.println ("Even in Berlin, no one has a negative income!");
+            System.out.println ("Wec an not calculate for 0 income !");
             System.out.println ("Start over.");
             System.exit (-1);
         }
 
+        
+        if (income < 1450) {
+            System.out.println ("Your Income is Equal or less than Minimum wage ");
+            System.out.println ("Start over.");
+            System.exit (-1);
+        }
         System.out.print("Enter the number of dependents you have, including yourself: ");
         try {
             String s = in.readLine();
@@ -56,6 +63,12 @@ public class TaxCalc {
           System.out.println ("Start over.");
           System.exit (-1);
           }
+       
+       if (age <= 25) {
+           System.out.println("Did you Still Study?");
+           System.out.println ("Start over.");
+           System.exit (-1);
+           }
 
 //    compute tax total
 
