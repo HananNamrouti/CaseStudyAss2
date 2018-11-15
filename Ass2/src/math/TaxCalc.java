@@ -33,7 +33,13 @@ public class TaxCalc {
             e1.printStackTrace();
         }
 
-    
+        System.out.print("Enter Your Age: ");
+        try {
+            String s = in.readLine();
+           age = Integer.valueOf(s).intValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 //     check income
 
         if (income < 0) {
@@ -65,13 +71,7 @@ public class TaxCalc {
           }
        
 //     check Your age      
-       System.out.print("Enter Your Age: ");
-       try {
-           String s = in.readLine();
-          age = Integer.valueOf(s).intValue();
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+       
        if (age <= 25) {
            System.out.println("Did you Still Study?");
            System.out.println ("Start over.");
