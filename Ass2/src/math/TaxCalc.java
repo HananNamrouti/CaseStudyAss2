@@ -21,10 +21,9 @@ public class TaxCalc {
     public static void main(String[] args) {
 
         // A Reader stream to read from the console
-        BufferedReader in =
-            new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println ("Welcome to the new Berlin tax calculator.");
+        System.out.println ("Welcome to the new Palestine tax calculator.");
         System.out.print   ("How much did you earn last year? ");
         try {
             income = Double.parseDouble(in.readLine());
@@ -34,21 +33,22 @@ public class TaxCalc {
             e1.printStackTrace();
         }
 
+    
 //     check income
 
         if (income < 0) {
-            System.out.println ("Wec an not calculate for 0 income !");
+            System.out.println ("We  can not calculate for 0 income !");
             System.out.println ("Start over.");
-            System.exit (-1);
+            print_tax(taxTotal );
         }
 
         
         if (income < 1450) {
             System.out.println ("Your Income is Equal or less than Minimum wage ");
             System.out.println ("Start over.");
-            System.exit (-1);
+            print_tax(taxTotal );
         }
-        System.out.print("Enter the number of dependents you have, including yourself: ");
+        System.out.print("Enter the number of dependents Family you have, including yourself: ");
         try {
             String s = in.readLine();
             nFamilyMembers = Integer.valueOf(s).intValue();
@@ -61,40 +61,53 @@ public class TaxCalc {
        if (nFamilyMembers <= 0) {
           System.out.println("Did you forget to count yourself?");
           System.out.println ("Start over.");
-          System.exit (-1);
+          print_tax(taxTotal );
           }
        
+//     check Your age      
+       System.out.print("Enter Your Age: ");
+       try {
+           String s = in.readLine();
+          age = Integer.valueOf(s).intValue();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
        if (age <= 25) {
            System.out.println("Did you Still Study?");
            System.out.println ("Start over.");
-           System.exit (-1);
+           print_tax(taxTotal );
            }
 
 //    compute tax total
 
-      if (income < 10000)
+      if (income < 1000)
          taxTotal = 0.12 * income;
-      else if (income < 50000)
-         taxTotal = 300.00 + 0.24 * (income - 10000);
+      else if (income < 5000)
+         taxTotal = 300.00 + 0.24 * (income - 1000);
       else
-         taxTotal = 1500.00 + 0.36 * (income - 50000);
+         taxTotal = 1500.00 + 0.36 * (income - 5000);
 
       for (int i = 0; i <= nFamilyMembers; i++){
            taxTotal = taxTotal - 100;
+          
       }
 
-//    check negative tax
-
-    if (taxTotal < 0) // In case of negative tax
-       taxTotal=0;
-
-    System.out.println ("=€=€=€=€=€=€=€=€=€=€=€=€=€=€=€");
-    System.out.println ("Wowereit & Sarrazin GmbH");
-    System.out.println ("Tax bill");
-    System.out.println ("Your income was " + income + " €.");
-    System.out.println ("You have " + nFamilyMembers + " family members.");
-    System.out.println ("Your total tax is " + taxTotal + " €.");
-    System.out.println ("Family member tax saving is " + nFamilyMembers*100 + "€.");
-    System.out.println ("=€=€=€=€=€=€=€=€=€=€=€=€=€=€=€");
+      print_tax(taxTotal );
+  
     }
+
+    
+    
+    public static void print_tax(double taxTotal2 ) {
+        if (taxTotal2 < 0) // In case of negative tax
+        	
+            taxTotal2=0;
+        
+         System.out.println ("Your total tax is " + taxTotal2 + " NIS");
+         System.exit(-1);
+       
+         }	
+
+    
+    
 }
