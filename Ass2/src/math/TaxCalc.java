@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /*
- * Created on 06.01.2006
+ * Created on 11-11-2018
  */
 
 /**
- * @author weberwu
+ * @author Hanan And Zena And Sally
  * Calculating a Berlin tax that could be done on a beer mat.
  */
 public class TaxCalc {
@@ -36,7 +36,7 @@ public class TaxCalc {
         System.out.print("Enter Your Age: ");
         try {
             String s = in.readLine();
-           age = Integer.valueOf(s).intValue();
+           age = Integer.valueOf(s);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,14 +44,12 @@ public class TaxCalc {
 
         if (income <= 0) {
             System.out.println ("We  can not calculate for 0 income !");
-            System.out.println ("Start over.");
             print_tax(taxTotal );
         }
 
         
         if (income <= 1450) {
-            System.out.println ("Your Income is Equal or less than Minimum wage ");
-            System.out.println ("Start over.");
+            System.out.println ("Your Income is Equal or less than Minimum wage ");     
             print_tax(taxTotal );
         }
         System.out.print("Enter the number of dependents Family you have, including yourself: ");
@@ -66,7 +64,6 @@ public class TaxCalc {
 
        if (nFamilyMembers <= 0) {
           System.out.println("Did you forget to count yourself?");
-          System.out.println ("Start over.");
           print_tax(taxTotal );
           }
        
@@ -74,7 +71,6 @@ public class TaxCalc {
        
        if (age <= 25) {
            System.out.println("Are You Still Studing?");
-           System.out.println ("Start over.");
            print_tax(taxTotal );
            }
 
@@ -95,9 +91,6 @@ public class TaxCalc {
       print_tax(taxTotal );
   
     }
-
-    
-    
     public static void print_tax(double taxTotal2 ) {
         if (taxTotal2 < 0) // In case of negative tax
         	
